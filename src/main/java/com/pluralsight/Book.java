@@ -35,14 +35,15 @@ public class Book {
     public String getCheckedOutTo() {
         return checkedOutTo;
     }
-    public void checkedOut(String name) {
+
+    public void checkOut(String name) {
         this.checkedOutTo = name;
         this.isCheckedOut = true;
 
     }
     public void checkIn() {
         this.checkedOutTo = "";
-        this.isCheckedOut = true;
+        this.isCheckedOut = false;
 
     }
     public void display() {
@@ -56,4 +57,21 @@ public class Book {
         }
         System.out.println("+------------------------------------------+");
     }
+    @Override
+    public String toString() {
+        String card = "+------------------------------------------+\n" +
+                "| ID: " + id + "\n" +
+                "| Title: " + title + "\n" +
+                "| ISBN: " + isbn + "\n" +
+                "| Checked Out: " + (isCheckedOut ? "Yes" : "No") + "\n";
+
+        if (isCheckedOut) {
+            card += "| Checked Out To: " + checkedOutTo + "\n";
+        }
+
+        card += "+------------------------------------------+";
+
+        return card;
+    }
+
 }
