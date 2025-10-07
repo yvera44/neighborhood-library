@@ -45,4 +45,15 @@ public class Book {
         this.isCheckedOut = true;
 
     }
+    public void display() {
+        System.out.println("+------------------------------------------+");
+        System.out.println("| ID: " + id);
+        System.out.println("| Title: " + title);
+        System.out.println("| ISBN: " + isbn);
+        System.out.println("| Checked Out: " + (isCheckedOut ? "Yes" : "No"));
+        if (isCheckedOut) {
+            System.out.println("| Checked Out To: " + checkedOutTo);
+        }
+        System.out.println("+------------------------------------------+");
+    }
 }
